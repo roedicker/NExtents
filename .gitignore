@@ -1,0 +1,5 @@
+*.suo
+*.user
+*.vs
+/src/NExtensions/bin
+/src/NExtensions/obj
