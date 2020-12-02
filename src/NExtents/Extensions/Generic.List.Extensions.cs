@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for type <see cref="List{T}"/>

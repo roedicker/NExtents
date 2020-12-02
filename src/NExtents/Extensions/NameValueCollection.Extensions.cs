@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Specialized;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for type <see cref="NameValueCollection"/>

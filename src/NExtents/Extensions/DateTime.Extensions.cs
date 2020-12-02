@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Provides extension methods for type <see cref="DateTime"/>
@@ -25,13 +25,13 @@ namespace NExtensions
     /// </remarks>
     /// <example>
     /// Assumed: Call of this method at Friday, January the 13th of 2006.
-    /// 
+    ///
     /// <code>
     /// string sResult;
-    /// 
+    ///
     /// sResult = DateTime.Now.GetIsoDateString();
     /// </code>
-    /// 
+    ///
     /// The value of sResult is set to "2006-01-13".
     /// </example>
     public static string ToIsoDateString(this DateTime date)
@@ -73,13 +73,13 @@ namespace NExtensions
     /// </remarks>
     /// <example>
     /// Assumed: Call of this method at Friday, January the 13th of 2006 at 10:46 and 18 seconds.
-    /// 
+    ///
     /// <code>
     /// string sResult;
-    /// 
+    ///
     /// sResult = DateTime.Now.GetIsoDateTimeString();
     /// </code>
-    /// 
+    ///
     /// The value of sResult is set to "2006-01-13 10:46:18".
     /// </example>
     public static string ToIsoDateTimeString(this DateTime date, bool useMilliseconds = false)
@@ -180,13 +180,13 @@ namespace NExtensions
     /// </remarks>
     /// <example>
     /// Assumed: Call of this method at Friday, January the 13th of 2006 at 10:46 and 18 seconds.
-    /// 
+    ///
     /// <code>
     /// string sResult;
-    /// 
+    ///
     /// sResult = DateTime.Now.GetIsoTimeString();
     /// </code>
-    /// 
+    ///
     /// The value of sResult is set to "10:46:18".
     /// </example>
     public static string ToIsoTimeString(this DateTime date, bool useMilliseconds = false)
