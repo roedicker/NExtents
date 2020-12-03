@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for type <see cref="SecureString" />

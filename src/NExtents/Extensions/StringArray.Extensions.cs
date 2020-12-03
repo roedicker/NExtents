@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for array of type <see cref="string"/>

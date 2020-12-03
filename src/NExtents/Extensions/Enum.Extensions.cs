@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for type <see cref="Enum"/>

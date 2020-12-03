@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Provides extensions for type <see cref="Dictionary{TKey, TValue}"/>

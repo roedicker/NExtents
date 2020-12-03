@@ -1,5 +1,5 @@
 # Introduction
-`NExtensions` provides a collection of extensions for .NET. Its purpose is that it takes away the repeating tasks you are facing in many projects over and over again.
+`NExtents` provides a collection of essential extensions for .NET. Its purpose is that it takes away the repeating tasks you are facing in many projects over and over again.
 
 # Overview
 The following extensions for .NET types are available:
@@ -15,6 +15,6 @@ The following extensions for .NET types are available:
 * string-Array (string[])
 * StringDictionary
 
-For a detailed overview see the NExtensions-[Wiki].
+For a detailed overview see the NExtents-[Wiki].
 
-[wiki]: https://github.com/roedicker/NExtensions/wiki
+[wiki]: https://github.com/roedicker/NExtents/wiki

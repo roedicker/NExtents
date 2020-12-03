@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace NExtensions
+namespace NExtents
 {
   /// <summary>
   /// Extensions for type <see cref="bool"/>
