@@ -92,7 +92,7 @@ namespace NExtents
     /// <param name="array">System.String array to be trimmed.</param>
     /// <param name="trimChars">Optional. An array of Unicode characters to remove or <strong>null</strong>.</param>
     /// <returns>Trimmed System.String array.</returns>
-    /// <remarks>Calls the method <see cref="System.String.TrimStart"/> for each element in the System.String array to perform the trim operation. If <i>TrimChars</i> is <strong>null</strong>, white-space characters are removed instead.</remarks>
+    /// <remarks>Calls the method <see cref="String.TrimStart(char[])"/> for each element in the System.String array to perform the trim operation. If <i>TrimChars</i> is <strong>null</strong>, white-space characters are removed instead.</remarks>
     public static string[] TrimStart(this string[] array, char[]? trimChars = null)
     {
       // check if trim characters are available
