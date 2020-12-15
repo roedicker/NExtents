@@ -26,15 +26,19 @@ namespace NExtents
       }
       else
       {
-        Attribute oAttribute = oInfo.GetCustomAttribute(typeof(DisplayAttribute), false);
-
-        if (oAttribute == null)
+        if (oInfo.GetCustomAttribute(typeof(DisplayAttribute), false) is DisplayAttribute oDisplayAttribute)
         {
-          return value.ToString();
+#if NETSTANDARD2_1
+#pragma warning disable CS8603 // Possible null reference return.
+#endif
+          return oDisplayAttribute.GetName();
+#if NETSTANDARD2_1
+#pragma warning restore CS8603 // Possible null reference return.
+#endif
         }
         else
         {
-          return ((DisplayAttribute)oAttribute).GetName();
+          return value.ToString();
         }
       }
     }
