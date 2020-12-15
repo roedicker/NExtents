@@ -368,7 +368,11 @@ namespace NExtents
     /// <returns><c>true</c> if the value parameter occurs within this string, otherwise <c>false</c>.</returns>
     public static bool Contains(this string s, string value, StringComparison comparisonType)
     {
+#if NETSTANDARD2_1
+      return s.Contains(value, comparisonType);
+#else
       return (s.IndexOf(value, comparisonType) >= 0);
+#endif
     }
 
     /// <summary>
