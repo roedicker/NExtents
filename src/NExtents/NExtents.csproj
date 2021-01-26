@@ -3,20 +3,20 @@
     <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <Version>1.2.0</Version>
     <Company>Mark Rödicker</Company>
     <Product>NExtents</Product>
     <Description>Collection of extensions for .NET</Description>
-    <Summary>Colections of extensions for .NET</Summary>
+    <Summary>Collections of extensions for .NET</Summary>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Title>NExtents</Title>
     <PackageId>NExtents</PackageId>
     <PackageTags>Extension Extensions</PackageTags>
     <PackageProjectUrl>https://github.com/roedicker/NExtents/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/roedicker/NExtents</RepositoryUrl>
-    <PackageReleaseNotes>Added support for additional .NET Frameworks
+    <PackageReleaseNotes>Added support of collections for string's IndexOf
     </PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

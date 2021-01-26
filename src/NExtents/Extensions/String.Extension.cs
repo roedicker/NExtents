@@ -6,10 +6,72 @@ using System.Text;
 namespace NExtents
 {
   /// <summary>
-  /// Extensions for type <see cref="string"/>
+  /// Extensions for type <see cref="string"/>.
   /// </summary>
   public static class StringExtensions
   {
+    /// <summary>
+    /// Checks if current string is contained in one of the items of the given values.
+    /// </summary>
+    /// <param name="s"><see cref="string"/> object to be used.</param>
+    /// <param name="values">Enumeration character values to be hecked</param>
+    /// <param name="comparisonType">Comparison to be used for checks.</param>
+    /// <returns>Index of the first matching location or -1 if no matches have been found.</returns>
+    public static int IndexOf(this string s, IEnumerable<char> values, StringComparison comparisonType)
+    {
+      if (String.IsNullOrEmpty(s) || values == null)
+      {
+        return -1;
+      }
+
+      int result = -1;
+
+      foreach (char value in values)
+      {
+#if NET45 || NETSTANDARD2_0
+        result = s.IndexOf(value);
+#else
+        result = s.IndexOf(value, comparisonType);
+#endif
+
+        if (result >= 0)
+        {
+          break;
+        }
+      }
+
+      return result;
+    }
+
+    /// <summary>
+    /// Checks if current string is contained in one of the items of the given values.
+    /// </summary>
+    /// <param name="s"><see cref="string"/> object to be used.</param>
+    /// <param name="values">Enumeration string values to be hecked</param>
+    /// <param name="comparisonType">Comparison to be used for checks.</param>
+    /// <returns>Index of the first matching location or -1 if no matches have been found.</returns>
+    public static int IndexOf(this string s, IEnumerable<string> values, StringComparison comparisonType)
+    {
+      if (String.IsNullOrEmpty(s) || values == null)
+      {
+        return -1;
+      }
+
+      int result = -1;
+
+      foreach (string value in values)
+      {
+        result = s.IndexOf(value, comparisonType);
+
+        if (result >= 0)
+        {
+          break;
+        }
+      }
+
+      return result;
+    }
+
     /// <summary>
     /// Gets a string array that contains the substrings in this string that are delimited by elements of a specified string
     /// </summary>
