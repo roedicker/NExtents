@@ -213,8 +213,8 @@ namespace NExtents
     /// <param name="s">String to be tokenized</param>
     /// <param name="quoteChar">Quote control character</param>
     /// <param name="separator">Additional seperator (beside space and tabulator)</param>
-    /// <returns>string enumeration with all found string tokens</returns>
-    public static string[] Tokenize(this string s, char quoteChar = '"', char separator = ' ')
+    /// <returns>String list containing all string tokens</returns>
+    public static IList<string> Tokenize(this string s, char quoteChar = '"', char separator = ' ')
     {
       List<string> Result = new List<string>();
       StringBuilder sbToken = new StringBuilder();
@@ -246,8 +246,6 @@ namespace NExtents
         }
         else if (cChar == quoteChar)
         {
-          // always add quote character to current token
-          sbToken.Append(cChar);
           bInQuote = !bInQuote;
         }
         else
