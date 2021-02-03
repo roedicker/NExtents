@@ -3,3 +3,5 @@
 *.vs
 /src/NExtents/bin
 /src/NExtents/obj
+/src/NExtents.Tests/bin
+/src/NExtents.Tests/obj
