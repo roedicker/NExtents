@@ -281,7 +281,7 @@ namespace NExtents
     }
 
     /// <summary>
-    /// Trims a string based on a given values
+    /// Trims a string based on given values
     /// </summary>
     /// <param name="s">String to be trimmed</param>
     /// <param name="trimValues">Values to be trimmed on both sides</param>
@@ -291,11 +291,25 @@ namespace NExtents
     {
       if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
       {
-        foreach (string sTrimValue in trimValues)
-        {
-          s = StringExtensions.TrimStart(s, sTrimValue, comparisonType);
-          s = StringExtensions.TrimEnd(s, sTrimValue, comparisonType);
-        }
+        s = StringExtensions.TrimStart(s, trimValues, comparisonType);
+        s = StringExtensions.TrimEnd(s, trimValues, comparisonType);
+      }
+
+      return s;
+    }
+
+    /// <summary>
+    /// Trims a string based on given values
+    /// </summary>
+    /// <param name="s">String to be trimmed</param>
+    /// <param name="trimValues">Values to be trimmed on both sides</param>
+    /// <returns>Trimmed string based on given values</returns>
+    public static string Trim(this string s, IEnumerable<char> trimValues)
+    {
+      if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
+      {
+        s = StringExtensions.TrimStart(s, trimValues);
+        s = StringExtensions.TrimEnd(s, trimValues);
       }
 
       return s;
@@ -312,11 +326,11 @@ namespace NExtents
     {
       if (!String.IsNullOrWhiteSpace(s) && !String.IsNullOrWhiteSpace(trimValue))
       {
-        int iIndex = s.IndexOf(trimValue, comparisonType);
+        int index = s.IndexOf(trimValue, comparisonType);
 
-        if (iIndex != -1)
+        if (index == 0)
         {
-          s = s.Substring(iIndex + trimValue.Length);
+          s = s.Substring(index + trimValue.Length);
         }
       }
 
@@ -324,7 +338,7 @@ namespace NExtents
     }
 
     /// <summary>
-    /// Trims a string's beginning based on a given values
+    /// Trims a string's beginning based on given values
     /// </summary>
     /// <param name="s">String to be trimmed at its beginning</param>
     /// <param name="trimValues">Values to be trimmed at the beginning</param>
@@ -334,10 +348,43 @@ namespace NExtents
     {
       if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
       {
-        foreach (string sTrimValue in trimValues)
+        int length;
+
+        do
         {
-          s = StringExtensions.TrimStart(s, sTrimValue, comparisonType);
-        }
+          length = s.Length;
+
+          foreach (string sTrimValue in trimValues)
+          {
+            s = StringExtensions.TrimStart(s, sTrimValue, comparisonType);
+          }
+        } while (s.Length < length);
+      }
+
+      return s;
+    }
+
+    /// <summary>
+    /// Trims a string's beginning based on given values.
+    /// </summary>
+    /// <param name="s">String to be trimmed at its beginning</param>
+    /// <param name="trimValues">Values to be trimmed at the beginning</param>
+    /// <returns>Trimmed string based on the given values</returns>
+    public static string TrimStart(this string s, IEnumerable<char> trimValues)
+    {
+      if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
+      {
+        int length;
+
+        do
+        {
+          length = s.Length;
+
+          foreach (char cTrimValue in trimValues)
+          {
+            s = s.TrimStart(cTrimValue);
+          }
+        } while (s.Length < length);
       }
 
       return s;
@@ -354,11 +401,11 @@ namespace NExtents
     {
       if (!String.IsNullOrWhiteSpace(s) && !String.IsNullOrWhiteSpace(trimValue))
       {
-        int iIndex = s.IndexOf(trimValue, comparisonType);
+        int index = s.LastIndexOf(trimValue, comparisonType);
 
-        if (iIndex != -1)
+        if (index == s.Length - trimValue.Length)
         {
-          s = s.Substring(0, iIndex);
+          s = s.Substring(0, index);
         }
       }
 
@@ -366,7 +413,7 @@ namespace NExtents
     }
 
     /// <summary>
-    /// Trims a string's end based on a given values
+    /// Trims a string's end based on given values
     /// </summary>
     /// <param name="s">String to be trimmed at its end</param>
     /// <param name="trimValues">Values to be trimmed at the end</param>
@@ -376,10 +423,43 @@ namespace NExtents
     {
       if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
       {
-        foreach (string sTrimValue in trimValues)
+        int length;
+
+        do
         {
-          s = StringExtensions.TrimEnd(s, sTrimValue, comparisonType);
-        }
+          length = s.Length;
+
+          foreach (string sTrimValue in trimValues)
+          {
+            s = StringExtensions.TrimEnd(s, sTrimValue, comparisonType);
+          }
+        } while (s.Length < length);
+      }
+
+      return s;
+    }
+
+    /// <summary>
+    /// Trims a string's end based on given values.
+    /// </summary>
+    /// <param name="s">String to be trimmed at its end</param>
+    /// <param name="trimValues">Values to be trimmed at the end</param>
+    /// <returns>Trimmed string based on the given values</returns>
+    public static string TrimEnd(this string s, IEnumerable<char> trimValues)
+    {
+      if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
+      {
+        int length;
+
+        do
+        {
+          length = s.Length;
+
+          foreach (char cTrimValue in trimValues)
+          {
+            s = s.TrimEnd(cTrimValue);
+          }
+        } while (s.Length < length);
       }
 
       return s;
