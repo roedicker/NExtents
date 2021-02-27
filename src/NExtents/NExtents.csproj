@@ -3,9 +3,9 @@
     <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0</FileVersion>
-    <Version>1.4.0</Version>
+    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <FileVersion>1.4.1</FileVersion>
+    <Version>1.4.1</Version>
     <Company>Mark Rödicker</Company>
     <Product>NExtents</Product>
     <Description>Collection of extensions for .NET</Description>
@@ -16,7 +16,7 @@
     <PackageTags>Extension Extensions</PackageTags>
     <PackageProjectUrl>https://github.com/roedicker/NExtents/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/roedicker/NExtents</RepositoryUrl>
-    <PackageReleaseNotes>Extended System.String to support Trim() accepting IEnumerable&lt;char&gt;
+    <PackageReleaseNotes>Bugfixes using Trim() with IEnumeration&lt;string&gt;.
     </PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
