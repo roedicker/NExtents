@@ -45,13 +45,15 @@ namespace NExtents.Tests.String.Extensions
     }
 
     [TestMethod]
-    [DataRow("...aBc...", "aBc...", new string[]{"...", "*"})]
+    [DataRow("...aBc...", "aBc...", new string[] { "...", "*" })]
     [DataRow("*...aBc...", "aBc...", new string[] { "...", "*" })]
     [DataRow("...*aBc...", "aBc...", new string[] { "...", "*" })]
     [DataRow("x...aBc...x", "x...aBc...x", new string[] { "...", "*" })]
     [DataRow("x*aBc*x", "x*aBc*x", new string[] { "...", "*" })]
     [DataRow("aBc", "aBc", new string[] { "...", "*" })]
     [DataRow("   aBc   ", "   aBc   ", new string[] { "...", "*" })]
+    [DataRow(".a", "a", new string[] { "*", ".", "..." })]
+    [DataRow(".c", "c", new string[] { "*", ".", ".." })]
     public void Extension_Should_Trim_At_Start_With_String_Enumeration(string target, string expected, string[] data)
     {
       string actual = target.TrimStart(data);
@@ -67,6 +69,7 @@ namespace NExtents.Tests.String.Extensions
     [DataRow("x*aBc*x", "x*aBc*x", new string[] { "...", "*" })]
     [DataRow("aBc", "aBc", new string[] { "...", "*" })]
     [DataRow("   aBc   ", "   aBc   ", new string[] { "...", "*" })]
+    [DataRow(".a", ".a", new string[] { "*", ".", ".." })]
     public void Extension_Should_Trim_At_End_With_String_Enumeration(string target, string expected, string[] data)
     {
       string actual = target.TrimEnd(data);
@@ -82,13 +85,13 @@ namespace NExtents.Tests.String.Extensions
     [DataRow("x*aBc*x", "x*aBc*x", new string[] { "...", "*" })]
     [DataRow("aBc", "aBc", new string[] { "...", "*" })]
     [DataRow("   aBc   ", "   aBc   ", new string[] { "...", "*" })]
+    [DataRow(".a", "a", new string[] { "*", ".", ".." })]
     public void Extension_Should_Trim_With_String_Enumeration(string target, string expected, string[] data)
     {
       string actual = target.Trim(data);
 
       Assert.AreEqual(expected, actual);
     }
-
 
     [TestMethod]
     [DataRow("...aBc...", "aBc...", new char[] { '.', '*' })]

@@ -272,12 +272,20 @@ namespace NExtents
     /// <returns>Trimmed string based on given value</returns>
     public static string Trim(this string s, string trimValue, StringComparison comparisonType = StringComparison.Ordinal)
     {
-      string Result;
+      if (!string.IsNullOrEmpty(trimValue))
+      {
+        if (!string.IsNullOrEmpty(s))
+        {
+          s = TrimStart(s, trimValue, comparisonType);
+        }
 
-      Result = TrimStart(s, trimValue, comparisonType);
-      Result = TrimEnd(Result, trimValue, comparisonType);
+        if (!string.IsNullOrEmpty(s))
+        {
+          s = TrimEnd(s, trimValue, comparisonType);
+        }
+      }
 
-      return Result;
+      return s;
     }
 
     /// <summary>
@@ -289,10 +297,17 @@ namespace NExtents
     /// <returns>Trimmed string based on given values</returns>
     public static string Trim(this string s, IEnumerable<string> trimValues, StringComparison comparisonType = StringComparison.Ordinal)
     {
-      if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
+      if (trimValues != null)
       {
-        s = StringExtensions.TrimStart(s, trimValues, comparisonType);
-        s = StringExtensions.TrimEnd(s, trimValues, comparisonType);
+        if (!string.IsNullOrEmpty(s))
+        {
+          s = StringExtensions.TrimStart(s, trimValues, comparisonType);
+        }
+
+        if (!string.IsNullOrEmpty(s))
+        {
+          s = StringExtensions.TrimEnd(s, trimValues, comparisonType);
+        }
       }
 
       return s;
@@ -306,10 +321,17 @@ namespace NExtents
     /// <returns>Trimmed string based on given values</returns>
     public static string Trim(this string s, IEnumerable<char> trimValues)
     {
-      if (!String.IsNullOrWhiteSpace(s) && trimValues != null)
+      if (trimValues != null)
       {
-        s = StringExtensions.TrimStart(s, trimValues);
-        s = StringExtensions.TrimEnd(s, trimValues);
+        if (!String.IsNullOrWhiteSpace(s))
+        {
+          s = StringExtensions.TrimStart(s, trimValues);
+        }
+
+        if (!String.IsNullOrWhiteSpace(s))
+        {
+          s = StringExtensions.TrimEnd(s, trimValues);
+        }
       }
 
       return s;
@@ -403,7 +425,8 @@ namespace NExtents
       {
         int index = s.LastIndexOf(trimValue, comparisonType);
 
-        if (index == s.Length - trimValue.Length)
+        if (index != -1 &&
+            index == s.Length - trimValue.Length)
         {
           s = s.Substring(0, index);
         }
